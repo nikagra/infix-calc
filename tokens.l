@@ -14,16 +14,16 @@
 %%
 <INITIAL>{
     [ \t]
-    "#"                     BEGIN(IN_COMMENT);
-    [0-9]+(\.[0-9]+)?       yylval = atof(yytext); return NUMBER;
-    "+"                     return PLUS;
-    "-"                     return MINUS;
-    "*"                     return MUL;
-    "/"                     return DIV;
-    "^"                     return POW;
-    "("                     return LBRACE;
-    ")"                     return RBRACE;
-    \n                      return EOL;
+    "#"                     ECHO; BEGIN(IN_COMMENT);
+    [0-9]+(\.[0-9]+)?       ECHO; yylval = atof(yytext); return NUMBER;
+    "+"                     ECHO; return PLUS;
+    "-"                     ECHO; return MINUS;
+    "*"                     ECHO; return MUL;
+    "/"                     ECHO; return DIV;
+    "^"                     ECHO; return POW;
+    "("                     ECHO; return LBRACE;
+    ")"                     ECHO; return RBRACE;
+    \n                      ECHO; return EOL;
     .         
 }
 <IN_COMMENT>{

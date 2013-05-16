@@ -1,7 +1,3 @@
-/* 
- * Reverse polish notation calculator.
- */
-
 %{
     #include <stdio.h>
     #include <math.h>
@@ -27,7 +23,8 @@ input:
  
 line:
       EOL
-    | expr EOL      { printf("%g\n", $1); }
+    | expr EOL      { printf(" = %g\n", $$); }
+    | error EOL
     ;
      
 expr:

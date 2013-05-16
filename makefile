@@ -5,7 +5,7 @@ SRCS=main.cpp tokens.cpp translator.cpp
 OBJS=$(SRCS:.cpp=.o)
 LEX=flex
 SYN=bison
-PROGRAM=foobar
+PROGRAM=infix-calc
 
 all: $(PROGRAM) 
 
@@ -20,6 +20,9 @@ tokens.cpp: tokens.l translator.cpp
 
 translator.cpp: translator.y
 	$(SYN) -d -o $@ $<
+
+test: $(PROGRAM) 
+	./$(PROGRAM) tests.txt
 
 clean:
 	-rm *.o $(PROGRAM) translator.cpp tokens.cpp translator.hpp

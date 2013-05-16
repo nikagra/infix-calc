@@ -1,0 +1,7 @@
+# File contains test arithmetic expressions
+2+3*(4-5)
+2^3^2
+2-3-2
+# Next line demonstrates error recovery feature
+2+3*(4-5
+5+((1+2)*4)-3
